@@ -1,0 +1,43 @@
+{
+    "name": "vue-clock-simple",
+    "version": "1.0.4",
+    "description": "A Vue.js component that displays a clock",
+    "main": "dist/vue-clock.js",
+    "scripts": {
+        "build": "rimraf ./plugin/*.d.ts ./plugin/*.js && webpack --config ./webpack.config.js"
+    },
+    "author": "Martin Guillon",
+    "license": "MIT",
+    "dependencies": {
+        "nativescript-material-button": "^2.2.3",
+        "nativescript-material-cardview": "^2.2.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anthonygore/vue-clock-simple"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-env": "^7.4.3",
+        "babel-loader": "^8.0.5",
+        "css-loader": "^2.1.1",
+        "nativescript-dev-webpack": "^0.21.0",
+        "nativescript-vue": "^2.2.2",
+        "nativescript-vue-template-compiler": "^2.2.2",
+        "node-sass": "^4.11.0",
+        "rimraf": "^2.6.3",
+        "sass-loader": "^7.1.0",
+        "string-replace-loader": "^2.1.1",
+        "tns-core-modules": "5.3.1",
+        "ts-loader": "^5.3.3",
+        "typescript": "^3.4.3",
+        "vue": "^2.6.10",
+        "vue-loader": "^15.7.0",
+        "vue-property-decorator": "^8.1.0",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "4.30.0",
+        "webpack-cli": "^3.3.0",
+        "webpack-merge": "^4.2.1"
+    }
+}

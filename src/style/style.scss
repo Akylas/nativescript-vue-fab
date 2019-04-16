@@ -1,0 +1,167 @@
+@import "./animations";
+$inAnimDuration: 250ms;
+$timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+.fab-item-title {
+    font-size: 14;
+    color: #666666;
+    vertical-align: center;
+}
+.fab-item-title-holder {
+    margin-right: 10;
+    height: 25;
+    elevation: 1;
+    padding: 7 12 7 12;
+    border-radius:4;
+    background-color: #fff;
+}
+
+.fab-button {
+    elevation: 2;
+    margin-top: 10;
+    width: 56;
+    height: 56;
+    border-radius: 28;
+    vertical-align: center;
+    horizontal-alignment: right;
+}
+.fab-icon-holder {
+    vertical-align: center;
+    horizontal-alignment: center;
+}
+.fab-icon {
+    padding-left: 2;
+    padding-bottom: 2;
+    text-align: center;
+    vertical-align: center;
+    font-size: 30;
+    color: black;
+}
+
+.fab-icon-on {
+    opacity: 0;
+}
+.fab-icon-off {
+    opacity: 1;
+}
+
+.fab-icon-show {
+    animation-name: fade;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+.fab-icon-hide {
+    animation-name: fade;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-icon-hidden {
+    opacity:0;
+}
+
+.fab-icon-rotate-show {
+    animation-name: fabIconRot;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+
+.fab-icon-rotate-hide {
+    animation-name: fabIconRot;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-icon-rotate-hidden {
+    transform: rotate(0deg);
+}
+.fab-icon-on-rotate-show {
+    animation-name: fabIconRotInv;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+
+.fab-icon-on-rotate-hide {
+    animation-name: fabIconRotInv;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-icon-on-rotate-hidden {
+    transform: rotate(-225deg);
+}
+
+.fab-backdrop {
+    background-color: rgba(29, 30, 35, 0.9);
+    opacity: 0;
+}
+
+.fab-backdrop-show {
+    animation-name: fade;
+    animation-duration: $inAnimDuration;
+    animation-fill-mode: forwards;
+}
+
+.fab-backdrop-hide {
+    animation-name: fade;
+    animation-duration: $inAnimDuration;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-backdrop-hidden {
+    opacity: 0;
+}
+
+.fab-item {
+    width: 40;
+    height: 40;
+    border-radius: 20;
+    color: #fff;
+}
+.fab-item-title {
+    font-size: 14;
+    color: #666666;
+}
+
+.fab-item-button-show {
+    animation-name: scale;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+
+.fab-item-button-hide {
+    animation-name: scale;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-item-button-hidden {
+    transform: scale(0);
+}
+
+.fab-item-title-show {
+    animation-name: fabItemTitle;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+
+.fab-item-title-hide {
+    animation-name: fabItemTitle;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
+.fab-item-title-hidden {
+    opacity: 0;
+    transform: translate(30, 0);
+}

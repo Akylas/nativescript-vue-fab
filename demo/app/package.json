@@ -1,0 +1,10 @@
+{
+    "android": {
+        "markingMode": "none",
+    "v8Flags": "--expose_gc"
+    },
+    "profiling": "none",
+    "main": "main.js",
+    "name": "com.akylas.vuefabdemo",
+    "version": "1.0.0"
+}
