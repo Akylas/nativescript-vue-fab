@@ -1,21 +1,29 @@
 {
-    "name": "vue-clock-simple",
+    "name": "nativescript-vue-fab",
     "version": "1.0.4",
-    "description": "A Vue.js component that displays a clock",
-    "main": "dist/vue-clock.js",
+    "description": "A Nativescript Vue component for Floating Action Button",
     "scripts": {
         "build": "rimraf ./plugin/*.d.ts ./plugin/*.js && webpack --config ./webpack.config.js"
     },
-    "author": "Martin Guillon",
-    "license": "MIT",
     "dependencies": {
         "nativescript-material-button": "^2.2.3",
         "nativescript-material-cardview": "^2.2.3"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/anthonygore/vue-clock-simple"
+    "keywords": [
+        "NativeScript",
+        "JavaScript",
+        "Android",
+        "iOS"
+    ],
+    "author": {
+        "name": "Martin Guillon",
+        "email": "martin@akylas.fr"
     },
+    "bugs": {
+        "url": "https://github.com/Akylas/nativescript-vue-fab/issues"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Akylas/nativescript-vue-fab",
     "devDependencies": {
         "@babel/core": "^7.4.3",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",

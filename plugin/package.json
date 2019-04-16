@@ -1,14 +1,24 @@
 {
     "name": "nativescript-vue-fab",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A Nativescript Vue component for Floating Action Button",
     "main": "main.js",
     "typings": "plugin.d.ts",
-    "scripts": {
-        "build": "rimraf ./plugin/*.d.ts ./plugin/*.js && webpack --config ./webpack.config.js"
+    "keywords": [
+        "NativeScript",
+        "JavaScript",
+        "Android",
+        "iOS"
+    ],
+    "author": {
+        "name": "Martin Guillon",
+        "email": "martin@akylas.fr"
     },
-    "author": "Martin Guillon",
-    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Akylas/nativescript-vue-fab/issues"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Akylas/nativescript-vue-fab",
     "dependencies": {
         "nativescript-material-button": "^2.2.3",
         "nativescript-material-cardview": "^2.2.3"
