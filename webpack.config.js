@@ -98,6 +98,9 @@ var config = {
         "nativescript-material-button": "nativescript-material-button",
         "nativescript-material-cardview": "nativescript-material-cardview",
         "tns-core-modules/application": "tns-core-modules/application",
+        "tns-core-modules/ui/page": "tns-core-modules/ui/page",
+        "vue-property-decorator": "vue-property-decorator",
+        "vue-class-component": "vue-class-component",
         tslib: "tslib",
         vue: "vue",
         "nativescript-vue": "nativescript-vue"

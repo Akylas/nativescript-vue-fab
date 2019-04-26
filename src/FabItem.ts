@@ -1,5 +1,5 @@
 import Vue from 'nativescript-vue';
-import { View } from 'tns-core-modules/ui/page/page';
+import { View } from 'tns-core-modules/ui/page';
 import { Component, Prop } from 'vue-property-decorator';
 import Fab from './Fab';
 
