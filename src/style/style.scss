@@ -2,26 +2,38 @@
 $inAnimDuration: 250ms;
 $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+
+.fab-items-holder {
+    padding: 0 6 0 6;
+    width: 100%;
+}
+
 .fab-item-title {
     font-size: 14;
     color: #666666;
     vertical-align: center;
+    margin: 0 12 0 12;
 }
-.fab-item-title-holder {
-    margin-right: 10;
+
+.fab-title-holder {
+    margin-left: 5;
+    margin-right: 5;
     height: 25;
     elevation: 1;
-    padding: 7 12 7 12;
-    border-radius:4;
+    border-radius: 4;
     background-color: #fff;
 }
 
+.fab-item-title-holder {
+    @extend .fab-title-holder;
+    margin-left: 12;
+    margin-right: 12;
+}
 .fab-button {
-    elevation: 2;
-    margin-top: 10;
-    width: 56;
-    height: 56;
-    border-radius: 28;
+    margin: 8;
+    width: 54;
+    height: 54;
+    border-radius: 27;
     vertical-align: center;
     horizontal-alignment: right;
 }
@@ -30,12 +42,9 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     horizontal-alignment: center;
 }
 .fab-icon {
-    padding-left: 2;
-    padding-bottom: 2;
     text-align: center;
     vertical-align: center;
-    font-size: 30;
-    color: black;
+    font-size: 24;
 }
 
 .fab-icon-on {
@@ -59,7 +68,7 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation-direction: reverse;
 }
 .fab-icon-hidden {
-    opacity:0;
+    opacity: 0;
 }
 
 .fab-icon-rotate-show {
@@ -121,12 +130,9 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 .fab-item {
     width: 40;
     height: 40;
+    padding:0;
     border-radius: 20;
-    color: #fff;
-}
-.fab-item-title {
-    font-size: 14;
-    color: #666666;
+    font-size: 24;
 }
 
 .fab-item-button-show {
@@ -161,7 +167,25 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation-fill-mode: forwards;
     animation-direction: reverse;
 }
+.fab-item-title-show-left {
+    animation-name: fabItemTitleLeft;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+}
+
+.fab-item-title-hide-left {
+    animation-name: fabItemTitleLeft;
+    animation-duration: $inAnimDuration;
+    animation-timing-function: $timingFunction;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+}
 .fab-item-title-hidden {
     opacity: 0;
     transform: translate(30, 0);
+}
+.fab-item-title-hidden-left {
+    opacity: 0;
+    transform: translate(-30, 0);
 }

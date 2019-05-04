@@ -1,38 +1,24 @@
 import Vue from 'nativescript-vue';
 import { Component, Prop } from 'vue-property-decorator';
 import FabItem from './FabItem';
+import FabBase from './FabBase';
 
 @Component
-export default class Fab extends Vue {
+export default class Fab extends FabBase {
     @Prop({ type: Boolean, default: false }) isActive: boolean;
 
-    @Prop() icon: string;
     @Prop() iconOn?: string;
-    @Prop() title?: string;
-    @Prop({ default: 'red' }) color: string;
-    @Prop({ default: 'white' }) iconColor: string;
-    @Prop() buttonClass?: string;
-    @Prop() titleClass?: string;
-    @Prop() iconClass?: string;
+    @Prop({ default: 'right' }) position: string;
 
-    private actualActive: boolean = this.isActive;
-
-    _readyToAnimate = false;
+    protected actualActive: boolean = this.isActive;
 
     // beforeMount() {
     //     this._readyToAnimate = false;
     //     console.log('fab beforeMount');
     // }
     mounted() {
-        this._readyToAnimate = true;
+        super.mounted();
         // console.log('fab mounted');
-    }
-    // destroyed() {
-    //     this._readyToAnimate = false;
-    //     console.log('fab destroyed');
-    // }
-    isReadyToAnimate() {
-        return this._readyToAnimate === true;
     }
 
     set active(value) {
@@ -49,26 +35,9 @@ export default class Fab extends Vue {
     get active() {
         return !!this.actualActive;
     }
-    get computedTitleClass() {
-        let result = this.titleClass ? (this.titleClass + ' ') : '';
-        if (this.isReadyToAnimate()) {
-            result += this.actualActive
-                ? 'fab-item-title-show'
-                : 'fab-item-title-hide';
-        } else {
-            result += this.actualActive ? '' : 'fab-item-title-hidden';
-        }
-        // console.log(
-        //     'computedTitleClass',
-        //     this._readyToAnimate,
-        //     this.actualActive,
-        //     this.titleClass,
-        //     result
-        // );
-        return result;
-    }
+
     get computedButttonClass() {
-        let result = this.buttonClass ? (this.buttonClass + ' ') : '';
+        let result = this.buttonClass ? this.buttonClass + ' ' : '';
         if (this.isReadyToAnimate()) {
             result += this.actualActive ? 'fab-button-show' : 'fab-button-hide';
         } else {
@@ -91,27 +60,27 @@ export default class Fab extends Vue {
         }
     }
     get iconOnClass() {
-        let result = this.iconClass ? (this.iconClass + ' ') : '';
+        let result = this.iconClass ? this.iconClass + ' ' : '';
         if (this.isReadyToAnimate()) {
-            result+=  this.actualActive
+            result += this.actualActive
                 ? 'fab-icon-show fab-icon-on-rotate-hide'
                 : 'fab-icon-hide fab-icon-on-rotate-show';
         } else {
-            result+=  this.actualActive ? '' : 'fab-icon-on-rotate-hidden';
+            result += this.actualActive ? '' : 'fab-icon-on-rotate-hidden';
         }
-        // console.log('iconOnClass',result);
+        // console.log('iconOnClass', result);
         return result;
     }
     get iconOffClass() {
-        let result = this.iconClass ? (this.iconClass + ' ') : '';
+        let result = this.iconClass ? this.iconClass + ' ' : '';
         if (this.isReadyToAnimate()) {
-            result+= !this.actualActive
+            result += !this.actualActive
                 ? 'fab-icon-show fab-icon-rotate-hide'
                 : 'fab-icon-hide fab-icon-rotate-show';
         } else {
-            result+= this.actualActive ? '' : 'fab-icon-rotate-hidden';
+            result += this.actualActive ? '' : 'fab-icon-rotate-hidden';
         }
-        // console.log('iconOffClass',result);
+        // console.log('iconOffClass', result);
         return result;
     }
     onButtonTap(args) {
