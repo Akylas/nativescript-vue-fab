@@ -62,6 +62,7 @@ module.exports = env => {
         uglify, // --env.uglify
         production, // --env.production
         report, // --env.report
+        development = false, // --env.development
         sourceMap, // --env.sourceMap
         hmr, // --env.hmr
         unitTesting // --env.unitTesting
@@ -103,6 +104,24 @@ module.exports = env => {
         }
     }
 
+    let aliases = {
+        '~': appFullPath,
+        '@': appFullPath,
+        vue: "akylas-nativescript-vue",
+        "nativescript-vue": "akylas-nativescript-vue"
+    };
+
+    if (!!development) {
+        const srcFullPath = resolve(projectRoot, '..', 'src');
+        aliases = Object.assign(aliases, {
+            '#': srcFullPath,
+            'nativescript-vue-fab$': '#/plugin',
+            
+        });
+
+        console.log('alias', aliases)
+    }
+
     const config = {
         mode: mode,
         context: appFullPath,
@@ -133,12 +152,7 @@ module.exports = env => {
                 "node_modules/tns-core-modules",
                 "node_modules"
             ],
-            alias: {
-                "~": appFullPath,
-                "@": appFullPath,
-                vue: "akylas-nativescript-vue",
-                "nativescript-vue": "akylas-nativescript-vue"
-            },
+            alias: aliases,
             // resolve symlinks to symlinked modules
             symlinks: true
         },
