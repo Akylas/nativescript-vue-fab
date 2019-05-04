@@ -1,6 +1,6 @@
 {
     "name": "nativescript-vue-fab",
-    "version": "1.0.3",
+    "version": "1.0.8",
     "description": "A Nativescript Vue component for Floating Action Button",
     "main": "main.js",
     "typings": "plugin.d.ts",
@@ -20,8 +20,8 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/Akylas/nativescript-vue-fab",
     "dependencies": {
-        "nativescript-material-button": "^2.2.3",
-        "nativescript-material-cardview": "^2.2.3",
+        "nativescript-material-button": "^2.2.4",
+        "nativescript-material-cardview": "^2.2.4",
         "vue-property-decorator": "^8.1.0"
     }
 }
