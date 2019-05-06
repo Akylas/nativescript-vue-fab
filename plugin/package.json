@@ -3,6 +3,7 @@
     "version": "1.0.9",
     "description": "A Nativescript Vue component for Floating Action Button",
     "main": "main.js",
+    "style": "style.css",
     "typings": "plugin.d.ts",
     "keywords": [
         "NativeScript",

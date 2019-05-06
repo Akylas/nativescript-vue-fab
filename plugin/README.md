@@ -17,6 +17,12 @@ Vue.use(CardViewPlugin);
 Vue.use(FabPlugin)
 ```
 
+You also need to import the css style from your app style file. The reason is that this way you can easily override any css class.
+
+```css
+@import '../node_modules/nativescript-vue-fab/main';
+```
+
 ## Usage
 
 Once installed, it can be used in a template as simply as:

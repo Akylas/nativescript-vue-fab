@@ -1,7 +1,13 @@
 
 @import './variables';
-// @import './components/fab/style/style';
+@import '../node_modules/nativescript-vue-fab/style';
 
 .mdi {
     font-family: 'Material Design Icons', 'MaterialDesignIcons', 'materialdesignicons-webfont';
+}
+
+.fab-item-title {
+    font-size: 16;
+    color: red;
+    vertical-align: top;
 }

@@ -1,10 +1,8 @@
 const { relative, resolve, sep } = require("path")
-const webpack = require("webpack")
-const merge = require("webpack-merge")
-const path = require("path")
 const NsVueTemplateCompiler = require("nativescript-vue-template-compiler")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
-const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const nsWebpack = require("nativescript-dev-webpack")
 const babelLoader = {
     loader: "babel-loader",
     options: {
@@ -20,11 +18,13 @@ const babelLoader = {
         ]
     }
 }
-const nsWebpack = require("nativescript-dev-webpack")
 var config = {
-    entry: resolve("src/plugin.ts"),
+    entry: {
+        main: resolve("src/plugin.ts"),
+        style:resolve("src/style/style.scss")
+    },
     context: resolve("src"),
-    mode: "production",
+    mode: "development",
     // stats: "verbose",
     // target: "node",
     output: {
@@ -52,7 +52,17 @@ var config = {
         rules: [
             {
                 test: /\.scss$/,
-                use: ["css-loader", "sass-loader"]
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            // you can specify a publicPath here
+                            // by default it uses publicPath in webpackOptions.output
+                        }
+                    },
+                    "css-loader",
+                    "sass-loader"
+                ]
             },
             {
                 test: /\.tsx?$/,
@@ -110,7 +120,13 @@ var config = {
             platform: "android",
             platforms: ["ios", "android"]
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ]
 }
 
