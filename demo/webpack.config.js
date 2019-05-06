@@ -77,7 +77,7 @@ module.exports = env => {
 
     const entryModule = nsWebpack.getEntryModule(appFullPath)
     const entryPath = `.${sep}${entryModule}`
-    const entries = { bundle: entryPath }
+    const entries = { bundle: entryPath}
     if (platform === "ios") {
         entries["tns_modules/tns-core-modules/inspector_modules"] =
             "inspector_modules.js"
@@ -116,6 +116,7 @@ module.exports = env => {
         aliases = Object.assign(aliases, {
             '#': srcFullPath,
             'nativescript-vue-fab$': '#/plugin',
+            '../node_modules/nativescript-vue-fab/main':'#/style/style.scss'
             
         });
 
