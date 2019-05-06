@@ -4,7 +4,7 @@
         <StackLayout class="fab-items-holder" :horizontalAlignment="position" row="2" colSpan="3" isPassThroughParentEnabled="true">
             <slot />
         </StackLayout>
-        <GridLayout :columns="isRight ? '*,auto,auto' : 'auto,auto'" paddingTop="5" width="100%" :horizontalAlignment="position" row="3" colSpan="3" isPassThroughParentEnabled="true">
+        <GridLayout :columns="isRight ? '*,auto,auto' : 'auto,auto,*'" padding="8" width="100%" :horizontalAlignment="position" row="3" colSpan="3" isPassThroughParentEnabled="true" >
             <MDCardView col="1" ref="titleLabel" class='fab-title-holder' :class="computedTitleClass" :visibility="title?'visible':'collapsed'" :isUserInteractionEnabled="active" @tap="onButtonTap">
                 <StackLayout orientation="horizontal" height="100%">
                     <Label class="fab-item-title" :text="title" />
@@ -22,6 +22,3 @@
 
 
 <script src="./Fab.ts"/>
-<style lang="scss" scoped>
-@import "./style/style";
-</style>

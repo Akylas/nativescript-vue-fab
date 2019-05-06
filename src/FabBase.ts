@@ -6,7 +6,7 @@ export default abstract class FabBase extends Vue {
     @Prop() icon: string;
     @Prop() title?: string;
     @Prop() backgroundColor?: string;
-    @Prop({default:'white'}) color?: string;
+    @Prop({ default: 'white' }) color?: string;
 
     @Prop() buttonClass?: string;
     @Prop() titleClass?: string;
