@@ -116,7 +116,8 @@ module.exports = env => {
         aliases = Object.assign(aliases, {
             '#': srcFullPath,
             'nativescript-vue-fab$': '#/plugin',
-            '../node_modules/nativescript-vue-fab/main':'#/style/style.scss'
+            '../node_modules/nativescript-vue-fab/style':'#/style/style.scss',
+            '../node_modules/nativescript-vue-fab/style.scss':'#/style/style.scss'
             
         });
 
