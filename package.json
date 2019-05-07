@@ -9,8 +9,8 @@
         "commitmsg": "commitlint -e $GIT_PARAMS"
     },
     "dependencies": {
-        "nativescript-material-button": "^2.2.4",
-        "nativescript-material-cardview": "^2.2.4"
+        "nativescript-material-button": "^2.2.6",
+        "nativescript-material-cardview": "^2.2.6"
     },
     "keywords": [
         "NativeScript",
