@@ -8,7 +8,7 @@
                 <Button dock="bottom" text="test2" @tap="onTap('button under test2', $event)"/>
                 <Button dock="right" text="test3" @tap="onTap('button under test3', $event)"/>
             </DockLayout>
-            <Fab position="left" title="de" iconClass="mdi" :icon="'mdi-plus' | fonticon" :iconOn="'mdi-share-variant' | fonticon" @tap="onTap('main', $event)">
+            <Fab position="left" title="de" backgroundColor="yellow" iconClass="mdi" :icon="'mdi-plus' | fonticon" :iconOn="'mdi-share-variant' | fonticon" @tap="onTap('main', $event)">
                 <FabItem title="test6" iconClass="mdi" icon="e" backgroundColor="red"  @tap="onTap('test6', $event)"/>
                 <FabItem title="test5" iconClass="mdi" icon="d" @tap="onTap('test5', $event)"/>
                 <FabItem title="test4" iconClass="mdi" icon="c" @tap="onTap('test4', $event)"/>
