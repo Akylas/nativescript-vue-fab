@@ -9,6 +9,7 @@ export default class Fab extends FabBase {
 
     @Prop() iconOn?: string;
     @Prop({ default: 'right' }) position: string;
+    @Prop({ default: false }) debug: boolean;
 
     protected actualActive: boolean = this.isActive;
 

@@ -4,8 +4,28 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 
 .fab-items-holder {
-    padding: 0 14 0 14;
+    padding: 0 9 0 9;
     width: 100%;
+}
+
+.fab-items-holder[debug='true'] {
+    background-color: #22ff0000;
+}
+.fab-item-holder[debug='true'] {
+    background-color: #33ffff00;
+}
+.fab-title-holder[debug='true'] {
+    background-color: #55ffff00;
+}
+
+.fab-item-title-holder[debug='true'] {
+    background-color: #55ff00ff;
+}
+.fab-button[debug='true'] {
+    background-color: #550000ff;
+}
+.fab-icon[debug='true'] {
+    background-color: #55144433;
 }
 
 .fab-item-title {
@@ -33,10 +53,6 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-radius: 27;
     vertical-align: center;
     horizontal-alignment: right;
-}
-.fab-icon-holder {
-    vertical-align: center;
-    horizontal-alignment: center;
 }
 .fab-icon {
     text-align: center;
@@ -108,6 +124,9 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
 }
 
+.fab-backdrop[debug='true'] {
+    background-color: rgba(29, 30, 35, 0.1);
+}
 .fab-backdrop-show {
     animation-name: fade;
     animation-duration: $inAnimDuration;
@@ -129,6 +148,8 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 40;
     border-radius: 20;
     font-size: 24;
+    padding: 0;
+    margin: 8;
 }
 
 .fab-item-button-show {

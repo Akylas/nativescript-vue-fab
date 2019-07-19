@@ -6,6 +6,7 @@ import FabBase from './FabBase';
 
 @Component
 export default class FabItem extends FabBase {
+    @Prop({ default: false }) debug: boolean;
 
 
     indexInParent = 0;
@@ -56,7 +57,6 @@ export default class FabItem extends FabBase {
     }
 
     onButtonTap(args) {
-        console.log('onButtonTap', this.title, this.icon, this.visible);
         this.parentFab.active = false;
         this.$emit('tap', args);
     }
