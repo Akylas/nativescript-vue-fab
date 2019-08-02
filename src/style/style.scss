@@ -2,37 +2,29 @@
 $inAnimDuration: 250ms;
 $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-
 .fab-items-holder {
     padding: 0 9 0 9;
     width: 100%;
 }
 
-.fab-items-holder[debug='true'] {
+.fab-items-holder[debug="true"] {
     background-color: #22ff0000;
 }
-.fab-item-holder[debug='true'] {
+.fab-item-holder[debug="true"] {
     background-color: #33ffff00;
 }
-.fab-title-holder[debug='true'] {
+.fab-title-holder[debug="true"] {
     background-color: #55ffff00;
 }
 
-.fab-item-title-holder[debug='true'] {
+.fab-item-title-holder[debug="true"] {
     background-color: #55ff00ff;
 }
-.fab-button[debug='true'] {
+.fab-button[debug="true"] {
     background-color: #550000ff;
 }
-.fab-icon[debug='true'] {
+.fab-icon[debug="true"] {
     background-color: #55144433;
-}
-
-.fab-item-title {
-    margin: 0 12 0 12;
-    font-size: 14;
-    color: #666666; 
-    vertical-align: center;
 }
 
 .fab-title-holder {
@@ -47,15 +39,29 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     @extend .fab-title-holder;
     margin: 0 12 0 12;
 }
+
+
+.fab-item-title {
+    @extend .fab-item-title-holder;
+    padding: 0 5 0 5;
+    font-size: 14;
+    color: #666666;
+    vertical-alignment: center;
+}
+
+.fab-title {
+    @extend .fab-item-title;
+    margin: 0 ;
+}
 .fab-button {
     width: 54;
     height: 54;
-    margin:12;
+    margin: 12;
     border-radius: 27;
     vertical-align: center;
     horizontal-alignment: right;
     elevation: 6;
-    dynamicElevationOffset:6;
+    dynamicelevationoffset: 6;
 }
 .fab-icon {
     text-align: center;
@@ -127,7 +133,7 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     // opacity: 0;
 }
 
-.fab-backdrop[debug='true'] {
+.fab-backdrop[debug="true"] {
     background-color: rgba(29, 30, 35, 0.1);
 }
 .fab-backdrop-show {
