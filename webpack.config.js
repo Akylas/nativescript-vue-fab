@@ -106,8 +106,13 @@ var config = {
         ]
     },
     externals: {
+
+        "nativescript-material-core":"nativescript-material-core",
+        "nativescript-material-core/core":"nativescript-material-core/core",
         "nativescript-material-button": "nativescript-material-button",
         "nativescript-material-cardview": "nativescript-material-cardview",
+        "nativescript-material-button/vue":"nativescript-material-button/vue",
+        "nativescript-material-cardview/vue":"nativescript-material-cardview/vue",
         "tns-core-modules/application": "tns-core-modules/application",
         "tns-core-modules/ui/page": "tns-core-modules/ui/page",
         "vue-property-decorator": "vue-property-decorator",
