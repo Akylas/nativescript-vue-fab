@@ -1,7 +1,7 @@
 const { relative, resolve, sep } = require("path")
 
 const webpack = require("webpack")
-const CleanWebpackPlugin = require("clean-webpack-plugin")
+const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const TerserPlugin = require("terser-webpack-plugin")

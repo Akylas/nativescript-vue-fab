@@ -11,10 +11,12 @@ Vue.config['debug'] = false;
 
 import './app.scss'
 
-import ButtonPlugin from 'nativescript-material-button/vue';
-import CardViewPlugin from 'nativescript-material-cardview/vue';
-Vue.use(ButtonPlugin);
-Vue.use(CardViewPlugin);
+
+import { Client as FlipperClient } from 'nativescript-flipper';
+const flipper = new FlipperClient();
+flipper.start({
+    plugins: ['inspector']
+});
 
 import FabPlugin from 'nativescript-vue-fab';
 Vue.use(FabPlugin);

@@ -3,10 +3,10 @@
         <ActionBar title="Home Page" />
         <AbsoluteLayout>
             <DockLayout width="100%" height="100%">
-                <Button dock="top" text="test" @tap="onTap('button under test', $event)"/>
-                <Button dock="left" text="test1" @tap="onTap('button under test1', $event)"/>
-                <Button dock="bottom" text="test2" @tap="onTap('button under test2', $event)"/>
-                <Button dock="right" text="test3" @tap="onTap('button under test3', $event)"/>
+                <MDButton dock="top" text="test" @tap="onTap('button under test', $event)"/>
+                <MDButton dock="left" text="test1" @tap="onTap('button under test1', $event)"/>
+                <MDButton dock="bottom" text="test2" @tap="onTap('button under test2', $event)"/>
+                <MDButton dock="right" text="test3" @tap="onTap('button under test3', $event)"/>
             </DockLayout>
             <Fab position="left" title="de" backgroundColor="yellow" iconClass="mdi" :icon="'mdi-plus' | fonticon" :iconOn="'mdi-share-variant' | fonticon" @tap="onTap('main', $event)">
                 <FabItem title="test6" iconClass="mdi" icon="e" backgroundColor="red"  @tap="onTap('test6', $event)"/>
