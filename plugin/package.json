@@ -21,8 +21,7 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/Akylas/nativescript-vue-fab",
     "dependencies": {
-        "nativescript-material-button": "^2.3.6",
-        "nativescript-material-cardview": "^2.3.6",
+        "nativescript-material-button": "^2.3.16",
         "vue-property-decorator": "^8.2.1"
     }
 }
