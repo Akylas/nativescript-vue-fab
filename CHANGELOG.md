@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.14...v1.0.15) (2019-08-02)
+
+
+### Bug Fixes
+
+* build fix ([a96d984](https://github.com/Akylas/nativescript-vue-fab/commit/a96d984))
+* removed unwanted logs ([8ba56b1](https://github.com/Akylas/nativescript-vue-fab/commit/8ba56b1))
+* update ([7929558](https://github.com/Akylas/nativescript-vue-fab/commit/7929558))
+* webpack fix ([e3b1110](https://github.com/Akylas/nativescript-vue-fab/commit/e3b1110))
+
+
+
+
+
 ## [1.0.14](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.12...v1.0.14) (2019-07-19)
 
 
