@@ -36,6 +36,7 @@ var config = {
     },
     devtool: "none",
     resolve: {
+        modules: [resolve(__dirname, 'node_modules/tns-core-modules'), resolve(__dirname, 'node_modules'), 'node_modules/tns-core-modules', 'node_modules'],
         extensions: [".vue", ".ts", ".js", ".tsx", ".scss", ".css"]
     },
     node: {
