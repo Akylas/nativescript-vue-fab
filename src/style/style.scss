@@ -50,9 +50,12 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 .fab-button {
     width: 54;
     height: 54;
+    margin:12;
     border-radius: 27;
     vertical-align: center;
     horizontal-alignment: right;
+    elevation: 6;
+    dynamicElevationOffset:6;
 }
 .fab-icon {
     text-align: center;
@@ -121,7 +124,7 @@ $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 .fab-backdrop {
     background-color: rgba(29, 30, 35, 0.9);
-    opacity: 0;
+    // opacity: 0;
 }
 
 .fab-backdrop[debug='true'] {

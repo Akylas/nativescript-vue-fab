@@ -1,16 +1,38 @@
 import Vue from 'nativescript-vue';
 import { View } from 'tns-core-modules/ui/page';
 import { Component, Prop } from 'vue-property-decorator';
+import { themer } from 'nativescript-material-core';
 
+let defaultColor;
 export default abstract class FabBase extends Vue {
     @Prop() icon: string;
     @Prop() title?: string;
     @Prop() backgroundColor?: string;
-    @Prop({ default: 'white' }) color?: string;
+    @Prop({}) color?: string;
+    @Prop({}) rippleColor?: string;
 
     @Prop() buttonClass?: string;
     @Prop() titleClass?: string;
     @Prop() iconClass?: string;
+
+    get actualBackgroundColor() {
+        if (this.backgroundColor) {
+            return this.backgroundColor;
+        }
+        if (!defaultColor) {
+            defaultColor = themer.getPrimaryColor();
+        }
+        return defaultColor;
+    }
+    get actualRippleColor() {
+        if (this.rippleColor) {
+            return this.rippleColor;
+        }
+        if (!defaultColor) {
+            defaultColor = themer.getPrimaryColor();
+        }
+        return defaultColor;
+    }
 
     protected actualActive = false;
 

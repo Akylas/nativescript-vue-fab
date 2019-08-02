@@ -12,6 +12,7 @@ export default class Fab extends FabBase {
     @Prop({ default: false }) debug: boolean;
 
     protected actualActive: boolean = this.isActive;
+    protected realActive: boolean = this.isActive;
 
     // beforeMount() {
     //     this._readyToAnimate = false;
@@ -32,6 +33,14 @@ export default class Fab extends FabBase {
                 c.visible = value;
             }
         });
+        if (value) {
+            this.realActive = this.actualActive;
+        } else {
+            setTimeout(() => {
+                // animation duration
+                this.realActive = this.actualActive;
+            }, 250);
+        }
     }
     get active() {
         return !!this.actualActive;
