@@ -1,26 +1,26 @@
-import Vue from 'nativescript-vue';
 import { Component, Prop } from 'vue-property-decorator';
-import FabItem from './FabItem';
 import FabBase from './FabBase';
 
-@Component
+@Component()
 export default class Fab extends FabBase {
     @Prop({ type: Boolean, default: false }) isActive: boolean;
-
-    @Prop() iconOn?: string;
-    @Prop({ default: 'right' }) position: string;
-    @Prop({ default: false }) debug: boolean;
-
-    protected actualActive: boolean = this.isActive;
-    protected realActive: boolean = this.isActive;
-
-    // beforeMount() {
-    //     this._readyToAnimate = false;
-    //     console.log('fab beforeMount');
-    // }
+    @Prop({ type: String }) iconOn?: string;
+    @Prop({ type: String, default: 'right' }) position: string;
+    @Prop({ type: String, default: 'vertical' }) orientation: string;
+    constructor() {
+        super();
+        this.actualActive = this.isActive;
+        this.rPosition = this.position;
+    }
     mounted() {
         super.mounted();
-        // console.log('fab mounted');
+        this.nativeView.fabPosition = this.rPosition;
+        // this.nativeView.notify({
+        //     eventName: 'fabPositionChange',
+        //     object: this.nativeView,
+        //     propertyName: 'fabPosition',
+        //     value: this.rPosition,
+        // });
     }
 
     set active(value) {
@@ -28,78 +28,44 @@ export default class Fab extends FabBase {
             return;
         }
         this.actualActive = value;
-        this.$children.forEach((c, i) => {
-            if (c instanceof FabItem) {
-                c.visible = value;
-            }
-        });
-        if (value) {
-            this.realActive = this.actualActive;
-        } else {
-            setTimeout(() => {
-                // animation duration
-                this.realActive = this.actualActive;
-            }, 250);
+        if (this.nativeView) {
+            this.nativeView.active = value;
+            this.nativeView.notify({
+                eventName: 'activeChange',
+                object: this.nativeView,
+                propertyName: 'active',
+                value,
+            });
         }
     }
     get active() {
-        return !!this.actualActive;
+        return this.actualActive;
     }
 
-    get computedButttonClass() {
-        let result = this.buttonClass ? this.buttonClass + ' ' : '';
-        if (this.isReadyToAnimate()) {
-            result += this.actualActive ? 'fab-button-show' : 'fab-button-hide';
-        } else {
-            result += this.actualActive ? '' : 'fab-button-hidden';
-        }
-        // console.log(
-        //     'computedButttonClass',
-        //     this._readyToAnimate,
-        //     this.actualActive,
-        //     this.buttonClass,
-        //     result
-        // );
-        return result;
+    public rPosition: string = 'right';
+
+    get isLeft() {
+        return this.rPosition === 'left';
     }
-    get classBackdrop() {
-        if (this.isReadyToAnimate()) {
-            return this.actualActive ? 'fab-backdrop-show' : 'fab-backdrop-hide';
-        } else {
-            return this.actualActive ? '' : 'fab-backdrop-hidden';
-        }
+    get isRight() {
+        return this.rPosition === 'right';
     }
-    get iconOnClass() {
-        let result = this.iconClass ? this.iconClass + ' ' : '';
-        if (this.isReadyToAnimate()) {
-            result += this.actualActive
-                ? 'fab-icon-show fab-icon-on-rotate-hide'
-                : 'fab-icon-hide fab-icon-on-rotate-show';
-        } else {
-            result += this.actualActive ? '' : 'fab-icon-on-rotate-hidden';
-        }
-        // console.log('iconOnClass', result);
-        return result;
+
+    get fabColumns() {
+        return this.isRight ? '*,auto,auto' : 'auto,auto,*';
     }
-    get iconOffClass() {
-        let result = this.iconClass ? this.iconClass + ' ' : '';
-        if (this.isReadyToAnimate()) {
-            result += !this.actualActive
-                ? 'fab-icon-show fab-icon-rotate-hide'
-                : 'fab-icon-hide fab-icon-rotate-show';
-        } else {
-            result += this.actualActive ? '' : 'fab-icon-rotate-hidden';
-        }
-        // console.log('iconOffClass', result);
-        return result;
+    get fabButtonCol() {
+        return this.isRight ? 2 : 0;
     }
+
     onButtonTap(args) {
-        // console.log('onButtonTap', this.active);
         args.active = this.active;
         this.active = !this.active;
+        console.log('onButtonTap');
         this.$emit('tap', args);
     }
     onBackdropTap(args) {
+        console.log('onBackdropTap');
         this.active = false;
     }
 }

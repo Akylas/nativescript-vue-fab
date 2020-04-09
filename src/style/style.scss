@@ -1,217 +1,163 @@
 @import "./animations";
 $inAnimDuration: 250ms;
 $timingFunction: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$indexDelay: 30ms;
 
-.fab-items-holder {
-    padding: 0 9 0 9;
-    width: 100%;
+@mixin childAnimation($class, $animation, $duration, $timing, $delay, $index, $total, $reverse) {
+    .#{$class} {
+        animation-name: #{$animation};
+        animation-delay:#{$delay}*#{$index} ms;
+        animation-duration: #{$duration};
+        animation-timing-function: #{$timing};
+        animation-fill-mode: forwards;
+        @if $reverse == true {
+            animation-delay:#{$delay}*#{$total - $index} ms;
+            animation-direction: reverse;
+        }
+        @else {
+            animation-delay:$indexDelay*#{$index} ms;
+        }
+    };
 }
+@mixin childrenAnimation($class, $animation, $duration, $timing, $delay, $count, $reverse) {
+    @for $i from 0 through $count {
+        &[index='#{$i}'] {
+            @include childAnimation($class, $animation, $duration, $timing, $delay, $i, $count, $reverse);
+        }
+    }
+}
+.fab {
+    & .fab-items-holder {
+        padding: 0 9 0 9;
+        width: 100%;
+    }
+    
+    & .fab-title-holder {
+        margin: 0 5 0 5;
+        height: 25;
+        elevation: 1;
+        border-radius: 4;
+        background-color: #fff;
+    }
+    
+    & .fab-item-title-holder {
+        @extend .fab-title-holder;
+        margin: 0 12 0 12;
+    }
+    
+    
+    & .fab-item-title {
+        @extend .fab-item-title-holder;
+        padding: 0 5 0 5;
+        font-size: 14;
+        color: #666666;
+        vertical-alignment: center;
+    }
+    
+    & .fab-title {
+        @extend .fab-item-title;
+        margin: 0 ;
+    }
+    & .fab-button {
+        width: 54;
+        height: 54;
+        margin: 12;
+        border-radius: 27;
+        vertical-align: center;
+        horizontal-alignment: right;
+        elevation: 6;
+        dynamicelevationoffset: 6;
+    }
+    & .fab-icon {
+        text-align: center;
+        vertical-align: center;
+        font-size: 24;
+    }
+    
+    & .fab-icon-on {
+        @extend .fab-icon;
+        opacity: 0;
+        transform: rotate(-225deg);
+    }
+    & .fab-icon-off {
+        @extend .fab-icon;
+        // opacity: 0;
+    }
+    & .fab-backdrop {
+        background-color: rgba(29, 30, 35, 0.9);
+        opacity: 0;
+    }
+    & .fab-item {
+        width: 40;
+        height: 40;
+        border-radius: 20;
+        font-size: 24;
+        padding: 0;
+        margin: 8;
+        transform: scale(0,0);
+    }
 
-.fab-items-holder[debug="true"] {
-    background-color: #22ff0000;
-}
-.fab-item-holder[debug="true"] {
-    background-color: #33ffff00;
-}
-.fab-title-holder[debug="true"] {
-    background-color: #55ffff00;
-}
+    & .fab-item-title {
+        opacity:0;
+    }
 
-.fab-item-title-holder[debug="true"] {
-    background-color: #55ff00ff;
-}
-.fab-button[debug="true"] {
-    background-color: #550000ff;
-}
-.fab-icon[debug="true"] {
-    background-color: #55144433;
-}
+    &[active=false] {
+        &  .fab-backdrop {
+            animation-name: fade;
+            animation-duration: $inAnimDuration;
+            animation-fill-mode: forwards;
+            animation-direction: reverse;
+        }
+        & .fab-item-title {
+           opacity:1;
+       }
 
-.fab-title-holder {
-    margin: 0 5 0 5;
-    height: 25;
-    elevation: 1;
-    border-radius: 4;
-    background-color: #fff;
-}
+       &[fabPosition=left] {
+            @include childAnimation(fab-title, fabItemTitleLeft, $inAnimDuration, $timingFunction, 0,0,0, true);
+       }
+       &[fabPosition=right] {
+            @include childAnimation(fab-title, fabItemTitle, $inAnimDuration, $timingFunction, 0,0,0, true);
+       }
+       @include childAnimation(fab-icon-off, fabIconRot, $inAnimDuration, $timingFunction, 0,0,0, true);
+       @include childAnimation(fab-icon-off, fade, $inAnimDuration, $timingFunction, 0,0,0, false);
+       @include childAnimation(fab-icon-on, fabIconRotInv, $inAnimDuration, $timingFunction, 0,0,0, false);
+       @include childAnimation(fab-icon-on, fade, $inAnimDuration, $timingFunction, 0,0,0, true);
+       &[fabPosition=left] .fab-item-holder {
+            @include childAnimation(fab-item-title, fabItemTitleLeft, $inAnimDuration, $timingFunction, 0, 0,0, true);
+            @include childAnimation(fab-item, scale, $inAnimDuration, $timingFunction, 0, 0,0, true);
+       }
+       &[fabPosition=right] .fab-item-holder {
+            @include childAnimation(fab-item-title, fabItemTitle, $inAnimDuration, $timingFunction, 0, 0,0, true);
+            @include childAnimation(fab-item, scale, $inAnimDuration, $timingFunction, 0, 0,0, true);
+       }
+    }
+    &[active=true]{
+        &  .fab-backdrop {
+            animation-name: fade;
+            animation-duration: $inAnimDuration;
+            animation-fill-mode: forwards;
+        }
+        & .fab-item-title {
+            opacity:0;
+        }
+        &[fabPosition=left] {
+            @include childAnimation(fab-title, fabItemTitleLeft, $inAnimDuration, $timingFunction, 0,0,0, false);
+        }
+        &[fabPosition=right] {
+            @include childAnimation(fab-title, fabItemTitle, $inAnimDuration, $timingFunction, 0,0,0, false);
+        }
+        @include childAnimation(fab-icon-off, fabIconRot, $inAnimDuration, $timingFunction, 0,0,0, false);
+        @include childAnimation(fab-icon-off, fade, $inAnimDuration, $timingFunction, 0,0,0, true);
+        @include childAnimation(fab-icon-on, fabIconRotInv, $inAnimDuration, $timingFunction, 0,0,0, true);
+        @include childAnimation(fab-icon-on, fade, $inAnimDuration, $timingFunction, 0,0,0, false);
 
-.fab-item-title-holder {
-    @extend .fab-title-holder;
-    margin: 0 12 0 12;
-}
-
-
-.fab-item-title {
-    @extend .fab-item-title-holder;
-    padding: 0 5 0 5;
-    font-size: 14;
-    color: #666666;
-    vertical-alignment: center;
-}
-
-.fab-title {
-    @extend .fab-item-title;
-    margin: 0 ;
-}
-.fab-button {
-    width: 54;
-    height: 54;
-    margin: 12;
-    border-radius: 27;
-    vertical-align: center;
-    horizontal-alignment: right;
-    elevation: 6;
-    dynamicelevationoffset: 6;
-}
-.fab-icon {
-    text-align: center;
-    vertical-align: center;
-    font-size: 24;
-}
-
-.fab-icon-on {
-    opacity: 0;
-}
-.fab-icon-off {
-    opacity: 1;
-}
-
-.fab-icon-show {
-    animation-name: fade;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-.fab-icon-hide {
-    animation-name: fade;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-icon-hidden {
-    opacity: 0;
-}
-
-.fab-icon-rotate-show {
-    animation-name: fabIconRot;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-
-.fab-icon-rotate-hide {
-    animation-name: fabIconRot;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-icon-rotate-hidden {
-    transform: rotate(0deg);
-}
-.fab-icon-on-rotate-show {
-    animation-name: fabIconRotInv;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-
-.fab-icon-on-rotate-hide {
-    animation-name: fabIconRotInv;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-icon-on-rotate-hidden {
-    transform: rotate(-225deg);
-}
-
-.fab-backdrop {
-    background-color: rgba(29, 30, 35, 0.9);
-    // opacity: 0;
-}
-
-.fab-backdrop[debug="true"] {
-    background-color: rgba(29, 30, 35, 0.1);
-}
-.fab-backdrop-show {
-    animation-name: fade;
-    animation-duration: $inAnimDuration;
-    animation-fill-mode: forwards;
-}
-
-.fab-backdrop-hide {
-    animation-name: fade;
-    animation-duration: $inAnimDuration;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-backdrop-hidden {
-    opacity: 0;
-}
-
-.fab-item {
-    width: 40;
-    height: 40;
-    border-radius: 20;
-    font-size: 24;
-    padding: 0;
-    margin: 8;
-}
-
-.fab-item-button-show {
-    animation-name: scale;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-
-.fab-item-button-hide {
-    animation-name: scale;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-item-button-hidden {
-    transform: scale(0);
-}
-
-.fab-item-title-show {
-    animation-name: fabItemTitle;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-
-.fab-item-title-hide {
-    animation-name: fabItemTitle;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-item-title-show-left {
-    animation-name: fabItemTitleLeft;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-}
-
-.fab-item-title-hide-left {
-    animation-name: fabItemTitleLeft;
-    animation-duration: $inAnimDuration;
-    animation-timing-function: $timingFunction;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-}
-.fab-item-title-hidden {
-    opacity: 0;
-    transform: translate(30, 0);
-}
-.fab-item-title-hidden-left {
-    opacity: 0;
-    transform: translate(-30, 0);
+        &[fabPosition=left] .fab-item-holder {
+            @include childrenAnimation(fab-item-title, fabItemTitleLeft, $inAnimDuration, $timingFunction, $indexDelay, 6, false);
+            @include childrenAnimation(fab-item, scale, $inAnimDuration, $timingFunction, $indexDelay, 6, false);
+       }
+       &[fabPosition=right] .fab-item-holder {
+            @include childrenAnimation(fab-item-title, fabItemTitle, $inAnimDuration, $timingFunction, $indexDelay, 6, false);
+            @include childrenAnimation(fab-item, scale, $inAnimDuration, $timingFunction, $indexDelay, 6, false);
+       }
+    }
 }
