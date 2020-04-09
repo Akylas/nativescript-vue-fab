@@ -1,5 +1,5 @@
-import Fab from './Fab.vue';
-import FabItem from './FabItem.vue';
+import Fab from './Fab';
+import FabItem from './FabItem';
 // import { installMixins } from 'nativescript-material-core';
 import ButtonPlugin from 'nativescript-material-button/vue';
 // installMixins();
