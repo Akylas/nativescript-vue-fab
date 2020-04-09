@@ -11,3 +11,19 @@
     color: red;
     vertical-align: top;
 }
+
+
+// .fab-backdrop[active=true] {
+//     background-color: rgba(255, 30, 255, 0.9);
+// }
+.fab-button {
+    background-color: yellow;
+
+}
+.btn {
+    background-color: green;
+}
+
+.btn[active=true] {
+    background-color: blue;
+}

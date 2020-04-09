@@ -1,8 +1,8 @@
-import Vue from "vue"
-declare module "vue/types/vue" {
-    // 3. Declare augmentation for Vue
+// import Vue from "vue"
+// declare module "vue/types/vue" {
+//     // 3. Declare augmentation for Vue
 
-    interface Vue {
+//     interface Vue {
 
-    }
-}
+//     }
+// }

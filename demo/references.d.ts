@@ -15,4 +15,3 @@ declare namespace NodeJS {
     }
 }
 declare const TNS_ENV;
-declare const process: { env: any };

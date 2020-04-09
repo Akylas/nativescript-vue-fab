@@ -11,13 +11,6 @@ Vue.config['debug'] = false;
 
 import './app.scss'
 
-
-import { Client as FlipperClient } from 'nativescript-flipper';
-const flipper = new FlipperClient();
-flipper.start({
-    plugins: ['inspector']
-});
-
 import FabPlugin from 'nativescript-vue-fab';
 Vue.use(FabPlugin);
 
