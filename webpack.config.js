@@ -3,6 +3,8 @@ const NsVueTemplateCompiler = require("nativescript-vue-template-compiler")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const nsWebpack = require("nativescript-dev-webpack")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
 const babelLoader = {
     loader: "babel-loader",
     options: {
@@ -27,6 +29,7 @@ var config = {
     mode: "development",
     // stats: "verbose",
     // target: "node",
+    watch:true,
     output: {
         pathinfo: false,
         path: resolve("plugin"),
@@ -36,7 +39,7 @@ var config = {
     },
     devtool: "none",
     resolve: {
-        modules: [resolve(__dirname, 'node_modules/tns-core-modules'), resolve(__dirname, 'node_modules'), 'node_modules/tns-core-modules', 'node_modules'],
+        modules: [resolve(__dirname, 'node_modules/@nativescript/core'), resolve(__dirname, 'node_modules'), 'node_modules/@nativescript/core', 'node_modules'],
         extensions: [".vue", ".ts", ".js", ".tsx", ".scss", ".css"]
     },
     node: {
@@ -49,6 +52,9 @@ var config = {
         fs: "empty",
         __dirname: false
     },
+    // optimization: {
+    //     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    //   },
     module: {
         rules: [
             {
@@ -113,8 +119,8 @@ var config = {
         "nativescript-material-cardview": "nativescript-material-cardview",
         "nativescript-material-button/vue":"nativescript-material-button/vue",
         "nativescript-material-cardview/vue":"nativescript-material-cardview/vue",
-        "tns-core-modules/application": "tns-core-modules/application",
-        "tns-core-modules/ui/page": "tns-core-modules/ui/page",
+        "@nativescript/core/application": "@nativescript/core/application",
+        "@nativescript/core/ui/page": "@nativescript/core/ui/page",
         "vue-property-decorator": "vue-property-decorator",
         "vue-class-component": "vue-class-component",
         tslib: "tslib",
