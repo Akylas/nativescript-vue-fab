@@ -9,8 +9,9 @@
             :backgroundColor="backgroundColor"
             :text="icon"
             @tap="onButtonTap"
+            :isUserInteractionEnabled="active"
         />
-        <Label col="1" class="fab-item-title" :class="titleClass" :text="title" v-if="title" @tap="onButtonTap" />
+        <Label col="1" class="fab-item-title" :class="titleClass" :text="title" v-if="title" @tap="onButtonTap" :isUserInteractionEnabled="active"/>
     </GridLayout>
 </template>
 
