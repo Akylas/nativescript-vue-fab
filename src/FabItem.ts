@@ -16,7 +16,7 @@ export default class FabItem extends FabBase {
     get isRight() {
         return this.parentFab.isRight;
     }
-    get position() {
+    get rPosition() {
         return this.parentFab.rPosition;
     }
     get fabColumns() {

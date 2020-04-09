@@ -1,5 +1,5 @@
 <template>
-    <GridLayout class="fab-item-holder" :horizontalAlignment="position" :columns="fabColumns" width="100%" isPassThroughParentEnabled="true">
+    <GridLayout class="fab-item-holder" :horizontalAlignment="rPosition" :columns="fabColumns" width="100%" isPassThroughParentEnabled="true">
         <MDButton
             :col="fabButtonCol"
             class="fab-item"
