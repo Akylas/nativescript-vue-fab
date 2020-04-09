@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.16...v1.0.17) (2020-04-09)
+
+
+### Bug Fixes
+
+* full rewrite for better animations ([7ddbf91](https://github.com/Akylas/nativescript-vue-fab/commit/7ddbf91))
+
+
+
+
+
 ## [1.0.16](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.15...v1.0.16) (2019-08-02)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "nativescript-vue-fab",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "A Nativescript Vue component for Floating Action Button",
     "main": "main.js",
     "style": "style.css",
