@@ -27,7 +27,7 @@ export default class FabItem extends FabBase {
     }
 
     get active() {
-        return this.actualActive;
+        return this.parentFab.active;
     }
     onButtonTap(args) {
         console.log('FabItem onButtonTap');
