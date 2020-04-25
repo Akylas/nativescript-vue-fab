@@ -1,7 +1,7 @@
 <template>
     <GridLayout class="fab" left="0" top="0" height="100%" width="100%" rows="auto,*,auto,auto" columns="auto,*,auto" isPassThroughParentEnabled="true">
         <AbsoluteLayout colSpan="3" rowSpan="4" class="fab-backdrop" @tap="onBackdropTap" :isUserInteractionEnabled="active" />
-        <FlexboxLayout class="fab-items-holder" :flexDirection="orientation === 'vertical' ? 'column-reverse' : 'row-reverse'" :horizontalAlignment="rPosition" row="2" colSpan="3" isPassThroughParentEnabled="true">
+        <FlexboxLayout class="fab-items-holder" :flexDirection="orientation === 'vertical' ? 'column-reverse' : 'row-reverse'" :horizontalAlignment="rPosition" row="2" colSpan="3" ios:isPassThroughParentEnabled="true">
             <slot />
         </FlexboxLayout>
         <GridLayout :columns="fabColumns" width="100%" :horizontalAlignment="rPosition" row="3" colSpan="3" isPassThroughParentEnabled="true">
