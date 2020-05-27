@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.21...v1.0.22) (2020-05-27)
+
+
+### Bug Fixes
+
+* **android:** crash because of N error ([e055035](https://github.com/Akylas/nativescript-vue-fab/commit/e055035))
+
+
+
+
+
 ## [1.0.21](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.20...v1.0.21) (2020-04-25)
 
 
