@@ -61,11 +61,9 @@ export default class Fab extends FabBase {
     onButtonTap(args) {
         args.active = this.active;
         this.active = !this.active;
-        console.log('onButtonTap');
         this.$emit('tap', args);
     }
     onBackdropTap(args) {
-        console.log('onBackdropTap');
         this.active = false;
     }
 }
