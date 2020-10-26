@@ -1,5 +1,5 @@
 import Vue, { NativeScriptVue } from 'nativescript-vue';
-import { Page } from '@nativescript/core/ui/page/page';
+import { Page } from '@nativescript/core/ui/page';
 
 export default class BaseVueComponent extends Vue {
     $refs: {

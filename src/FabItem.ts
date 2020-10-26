@@ -10,7 +10,7 @@ export default class FabItem extends FabBase {
     }
     mounted() {
         super.mounted();
-        this.index = this.nativeView.index = this.$parent.$children.indexOf(this);
+        this.index = (this.nativeView as any).index = this.$parent.$children.indexOf(this);
     }
 
     get isRight() {

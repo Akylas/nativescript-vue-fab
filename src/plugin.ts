@@ -1,8 +1,6 @@
 import Fab from './Fab';
 import FabItem from './FabItem';
-// import { installMixins } from 'nativescript-material-core';
-import ButtonPlugin from 'nativescript-material-button/vue';
-// installMixins();
+import ButtonPlugin from '@nativescript-community/ui-material-button/vue';
 
 const Plugin = {
     install(Vue) {

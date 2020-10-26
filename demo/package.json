@@ -13,7 +13,7 @@
         "@mdi/font": "^3.9.97",
         "@nativescript/core": "6.5.1",
         "nativescript-akylas-fonticon": "~2.0.7",
-        "nativescript-material-button": "^3.1.16",
+        "@nativescript-community/ui-material-button": "^3.1.16",
         "nativescript-vue": "^2.5.1",
         "nativescript-vue-fab": "../plugin"
     },

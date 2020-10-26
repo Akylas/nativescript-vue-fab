@@ -14,7 +14,7 @@ export default class Fab extends FabBase {
     }
     mounted() {
         super.mounted();
-        this.nativeView.fabPosition = this.rPosition;
+        (this.nativeView as any).fabPosition = this.rPosition;
         // this.nativeView.notify({
         //     eventName: 'fabPositionChange',
         //     object: this.nativeView,
@@ -29,7 +29,7 @@ export default class Fab extends FabBase {
         }
         this.actualActive = value;
         if (this.nativeView) {
-            this.nativeView.active = value;
+            (this.nativeView as any).active = value;
             this.nativeView.notify({
                 eventName: 'activeChange',
                 object: this.nativeView,
