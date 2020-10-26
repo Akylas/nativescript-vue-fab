@@ -6,7 +6,7 @@
         "clean": "rimraf ./plugin/*.d.ts ./plugin/*.js ",
         "build": "webpack --config ./webpack.config.js",
         "rollup": "rollup -c",
-        "publish": "npm run build && lerna publish --github-release",
+        "publish": "npm run build && lerna publish --create-release=github",
         "commitmsg": "commitlint -e $GIT_PARAMS"
     },
     "keywords": [
