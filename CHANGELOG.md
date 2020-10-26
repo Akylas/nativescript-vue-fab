@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/Akylas/nativescript-vue-fab/compare/v2.0.0...v2.0.1) (2020-10-26)
+
+
+### Bug Fixes
+
+* fix packaged build ([c937950](https://github.com/Akylas/nativescript-vue-fab/commit/c937950))
+
+
+
+
+
 # [2.0.0](https://github.com/Akylas/nativescript-vue-fab/compare/v1.0.23...v2.0.0) (2020-10-26)
 
 
