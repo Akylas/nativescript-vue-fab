@@ -14,14 +14,6 @@ import './app.scss'
 import FabPlugin from 'nativescript-vue-fab';
 Vue.use(FabPlugin);
 
-import { fonticon, TNSFontIcon } from 'nativescript-akylas-fonticon';
-// TNSFontIcon.debug = true;
-TNSFontIcon.paths = {
-    mdi: './assets/materialdesignicons.min.css'
-};
-TNSFontIcon.loadCss();
-Vue.filter('fonticon', fonticon);
-
 import App from '~/components/App';
 new Vue({
     render: h => {

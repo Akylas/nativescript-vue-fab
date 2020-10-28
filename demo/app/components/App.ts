@@ -1,10 +1,8 @@
 import BaseVueComponent from './BaseVueComponent';
 import { Component } from 'vue-property-decorator';
-import { Frame } from '@nativescript/core/ui/frame/frame';
-import { TabView } from '@nativescript/core/ui/tab-view/tab-view';
-import Vue from 'nativescript-vue';
+import { Frame } from '@nativescript/core';
+import { TabView } from '@nativescript/core';
 import Home from './Home';
-import { GC } from '@nativescript/core/utils/utils';
 
 @Component({
     components: {
