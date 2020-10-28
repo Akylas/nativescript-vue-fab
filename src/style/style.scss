@@ -7,7 +7,7 @@ $indexDelay: 30;
     .#{$class} {
         animation-name: #{$animation};
         animation-delay: #{$delay * $index} ms;
-        animation-duration: #{$duration};
+        animation-duration: #{$duration} ms;
         animation-timing-function: #{$timing};
         animation-fill-mode: forwards;
         @if $reverse == true {
@@ -132,7 +132,7 @@ $indexDelay: 30;
     &[active='true'] {
         & .fab-backdrop {
             animation-name: fade;
-            animation-duration: $inAnimDuration;
+            animation-duration: $inAnimDuration ms;
             animation-fill-mode: forwards;
         }
         & .fab-item-title {
